@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Faith Centre A/G</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c6b93;
+            --secondary: #1c4d72;
+            --accent: #ffcc00;
+            --light: #f5f7fa;
+            --dark: #333;
+            --text: #444;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--secondary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .service-content p {
+            margin-bottom: 15px;
+        }
+
+        .service-time {
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Events Section */
+        .events-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .events-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .event-card {
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .event-date {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .event-date .day {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .event-date .month {
+            font-size: 1.2rem;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .event-content p {
+            margin-bottom: 15px;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 15px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Ministries Section */
+        .ministries {
+            background-color: #f0f8ff;
+        }
+
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .ministry-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ministry-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .ministry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Sermons Section */
+        .sermons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .sermon-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .sermon-image {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .sermon-content {
+            padding: 20px;
+        }
+
+        .sermon-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .sermon-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Christian Faith Center A/G</h1>
+                    <p>NOT BY MIGHT</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#ministries" class="nav-link" data-page="ministries">Ministries</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                    <li><a href="#membership" class="nav-link" data-page="membership">Membership</a></li>
+                    <li><a href="#payment" class="nav-link" data-page="payment">Give</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>Welcome to Christian Faith Center A/G</h2>
+                <p>Join us as we grow in faith, hope, and love together</p>
+                <a href="#services" class="btn nav-link" data-page="services">Join Our Services</a>
+                <a href="#about" class="btn btn-secondary nav-link" data-page="about">Learn More</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Our Church</h2>
+                    <p>We are a community of believers committed to following Jesus and serving our community</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission & Vision</h3>
+                        <p>At Christian Faith Centre, our mission is to lead people into a growing relationship with Jesus Christ. We believe in the power of God's love to transform lives and communities.</p>
+                        <p>Founded in 1992, we have been serving the local community for decades now, sharing the hope of the Gospel through word and action.</p>
+                        <p>Our vision is to see lives transformed, families restored, and communities renewed through the power of the Holy Spirit.</p>
+                        <a href="#contact" class="btn nav-link" data-page="contact">Get Connected</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Join us for worship, teaching, and fellowship</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Sunday Morning Worship</h3>
+                            <p>Join us for our main worship service with contemporary music, prayer, and biblical teaching.</p>
+                            <div class="service-time">
+                                <i class="far fa-clock"></i> Sundays at 9:30 AM & 11:30 AM
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Thursday Bible Study</h3>
+                            <p>Midweek gathering for deeper Bible study, prayer, and small group discussions.</p>
+                            <div class="service-time">
+                                <i class="far fa-clock"></i> Thursdays at 5:30 PM
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Annual Prayers</h3>
+                            <p>Join us for a powerful time of prayer and intercession as we seek God's guidance and blessings for the year ahead.</p>
+                            <div class="service-time">
+                                <i class="far fa-clock"></i> Fridays at 6:30 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ministries Section -->
+        <section class="ministries">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Ministries</h2>
+                    <p>Find your place to serve and grow</p>
+                </div>
+                <div class="ministries-grid">
+                    <div class="ministry-card">
+                        <div class="ministry-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Men's Ministry</h3>
+                        <p>Engaging programs for men to grow in faith, fellowship, and service.</p>
+                    </div>
+                    <div class="ministry-card">
+                        <div class="ministry-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Women's Ministry</h3>
+                        <p>Empowering women to grow in their faith and impact their families and communities.</p>
+                    </div>
+                    <div class="ministry-card">
+                        <div class="ministry-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Youth Ministry</h3>
+                        <p>Dynamic programs for teens to grow in their faith and build lasting friendships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                    <p>We'd love to hear from you and help you get connected</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4>Our Location</h4>
+                                    <p>Poly Getfund, behind Rapid school</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4>Phone Number</h4>
+                                    <p>(+233) 245 3484 21</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4>Email Address</h4>
+                                    <p>christianfaithcenterat35@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4>Sunday Worship</h4>
+                                    <p>9:30 AM - 11:30 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#instgram"><i class="fab fa-instagram"></i></a>
+                            <a href="#tiktok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#telegram"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Membership Page -->
+    <div id="membership" class="page-content">
+        <div class="container" style="padding: 40px 0;">
+            <div style="background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); overflow: hidden;">
+                <div class="header" style="background: linear-gradient(to right, #2c6b93, #1c4d72); color: white; padding: 25px; text-align: center; position: relative;">
+                    <div class="church-logo" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <div style="background: linear-gradient(to right, #ffcc00, #ff9900); color: #1c4d72; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 20px;">
+                            ASSEMBLIES OF GOD<br>
+                            <span style="font-size: 16px;">All The Gospel</span>
+                        </div>
+                        <div class="logo-text" style="text-align: center;">
+                            <div class="church-name" style="font-size: 50px; font-weight: bold; letter-spacing: 1.5px; margin-bottom: 9px;">ASSEMBLIES OF GOD (CFC)</div>
+                            <div class="church-tagline" style="font-size: 20px; font-style: italic; opacity: 0.9;">Christian Faith Centre</div>
+                        </div>
+                    </div>
+                    <h2 class="form-title" style="font-size: 26px; margin: 15px 0; color: #ffcc00; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);">MEMBERSHIP FORM</h2>
+                </div>
+                
+                <div class="form-content" style="padding: 30px;">
+                    <p class="intro-text" style="margin: 15px 0; font-size: 16px; line-height: 1.6; color: #444; text-align: center;">We are very pleased that you have shown interest in becoming a member of Christian Faith Center. Please fill in the form and return it to the office.</p>
+                    
+                    <div class="contact-info" style="background-color: #f0f8ff; padding: 12px; border-radius: 8px; margin: 20px 0; text-align: center; font-weight: bold; color: #1c4d72; border-left: 4px solid #2c6b93;">
+                        <i class="fas fa-phone-alt"></i> If you have any questions please feel free to call... 0245348421
+                    </div>
+                    
+                    <form id="membershipForm">
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-user"></i> PERSONAL INFORMATION</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="lastName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="firstName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="preferredName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Prefer to be called:</label>
+                                <input type="text" id="preferredName" name="preferredName" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="houseNumber" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">House No.:</label>
+                                <input type="text" id="houseNumber" name="houseNumber" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="gpsAddress" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">GPR address:</label>
+                                <input type="text" id="gpsAddress" name="gpsAddress" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="area" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Area:</label>
+                                <input type="text" id="area" name="area" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="homePhone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Home Phone:</label>
+                                <input type="tel" id="homePhone" name="homePhone" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="workPhone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Work Phone:</label>
+                                <input type="tel" id="workPhone" name="workPhone" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Gender:</label>
+                                <div class="radio-group" style="display: flex; gap: 25px; margin: 12px 0;">
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="male" name="gender" value="male" style="margin-right: 8px;">
+                                        <label for="male" style="display: inline; margin-bottom: 0;">Male</label>
+                                    </div>
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="female" name="gender" value="female" style="margin-right: 8px;">
+                                        <label for="female" style="display: inline; margin-bottom: 0;">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Marital Status:</label>
+                                <div class="radio-group" style="display: flex; gap: 25px; margin: 12px 0;">
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="married" name="maritalStatus" value="married" style="margin-right: 8px;">
+                                        <label for="married" style="display: inline; margin-bottom: 0;">Married</label>
+                                    </div>
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="single" name="maritalStatus" value="single" style="margin-right: 8px;">
+                                        <label for="single" style="display: inline; margin-bottom: 0;">Single</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="birthdate" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Date of Birth:</label>
+                                <input type="date" id="birthdate" name="birthdate" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Email:</label>
+                                <input type="email" id="email" name="email" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="occupation" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Occupation:</label>
+                                <input type="text" id="occupation" name="occupation" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="employer" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Employer:</label>
+                                <input type="text" id="employer" name="employer" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                        </div>
+                        
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-users"></i> FAMILY INFORMATION</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="spouseName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Spouse Name:</label>
+                                <input type="text" id="spouseName" name="spouseName" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="spouseOccupation" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Spouse Occupation:</label>
+                                <input type="text" id="spouseOccupation" name="spouseOccupation" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="childrenNames" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Children's Names & Ages:</label>
+                                <textarea id="childrenNames" name="childrenNames" rows="4" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-church"></i> CHURCH INFORMATION</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="previousChurch" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Previous Church:</label>
+                                <input type="text" id="previousChurch" name="previousChurch" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="baptismDate" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Date of Baptism:</label>
+                                <input type="date" id="baptismDate" name="baptismDate" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="membershipDate" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Date of Membership:</label>
+                                <input type="date" id="membershipDate" name="membershipDate" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="spiritualGifts" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Spiritual Gifts:</label>
+                                <textarea id="spiritualGifts" name="spiritualGifts" rows="4" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;"></textarea>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="ministryInterests" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Ministry Interests:</label>
+                                <textarea id="ministryInterests" name="ministryInterests" rows="4" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-file-signature"></i> AGREEMENT</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="signature" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Signature:</label>
+                                <input type="text" id="signature" name="signature" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="date" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Date:</label>
+                                <input type="date" id="date" name="date" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions" style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="btn" style="background: linear-gradient(to right, #2c6b93, #1c4d72); color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">Submit Form</button>
+                            <button type="reset" class="btn" style="background: #f0f8ff; color: #1c4d72; padding: 15px 40px; border: 2px solid #1c4d72; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-left: 15px;">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Page -->
+    <div id="payment" class="page-content">
+        <div class="container" style="padding: 40px 0;">
+            <div style="background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); overflow: hidden;">
+                <div class="header" style="background: linear-gradient(to right, #2c6b93, #1c4d72); color: white; padding: 25px; text-align: center; position: relative;">
+                    <div class="church-logo" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                        <div style="background: linear-gradient(to right, #ffcc00, #ff9900); color: #1c4d72; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 20px;">
+                            ASSEMBLIES OF GOD<br>
+                            <span style="font-size: 16px;">All The Gospel</span>
+                        </div>
+                        <div class="logo-text" style="text-align: center;">
+                            <div class="church-name" style="font-size: 50px; font-weight: bold; letter-spacing: 1.5px; margin-bottom: 9px;">ASSEMBLIES OF GOD (CFC)</div>
+                            <div class="church-tagline" style="font-size: 20px; font-style: italic; opacity: 0.9;">Christian Faith Centre</div>
+                        </div>
+                    </div>
+                    <h2 class="form-title" style="font-size: 26px; margin: 15px 0; color: #ffcc00; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);">ONLINE GIVING</h2>
+                </div>
+                
+                <div class="form-content" style="padding: 30px;">
+                    <p class="intro-text" style="margin: 15px 0; font-size: 16px; line-height: 1.6; color: #444; text-align: center;">Thank you for your generous support of Christian Faith Center. Your giving helps us fulfill our mission of spreading the Gospel and serving our community.</p>
+                    
+                    <div class="contact-info" style="background-color: #f0f8ff; padding: 12px; border-radius: 8px; margin: 20px 0; text-align: center; font-weight: bold; color: #1c4d72; border-left: 4px solid #2c6b93;">
+                        <i class="fas fa-phone-alt"></i> For assistance with giving, please call 0245348421
+                    </div>
+                    
+                    <form id="paymentForm">
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-user"></i> DONOR INFORMATION</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donorName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Full Name:</label>
+                                <input type="text" id="donorName" name="donorName" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donorEmail" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Email:</label>
+                                <input type="email" id="donorEmail" name="donorEmail" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donorPhone" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Phone Number:</label>
+                                <input type="tel" id="donorPhone" name="donorPhone" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donorAddress" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Address:</label>
+                                <textarea id="donorAddress" name="donorAddress" rows="3" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-donate"></i> DONATION INFORMATION</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donationType" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Donation Type:</label>
+                                <select id="donationType" name="donationType" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                    <option value="">Select Donation Type</option>
+                                    <option value="tithe">Tithe</option>
+                                    <option value="offering">Offering</option>
+                                    <option value="building">Building Fund</option>
+                                    <option value="missions">Welfare</option>
+                                    <option value="benevolence">Covenant Contribution</option>
+                                   
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donationAmount" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Donation Amount (GHS):</label>
+                                <input type="number" id="donationAmount" name="donationAmount" min="1" step="0.01" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            
+                          
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="donationMessage" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Message (Optional):</label>
+                                <textarea id="donationMessage" name="donationMessage" rows="3" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="section" style="margin-bottom: 30px; padding: 25px; border: 1px solid #e1e5eb; border-radius: 10px; background-color: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);">
+                            <h3 class="section-title" style="color: #932c41; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f8ff; font-size: 22px; display: flex; align-items: center;"><i class="fas fa-credit-card"></i> PAYMENT METHOD</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Payment Method:</label>
+                                <div class="radio-group" style="display: flex; gap: 25px; margin: 12px 0;">
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="mobileMoney" name="paymentMethod" value="mobileMoney" style="margin-right: 8px;">
+                                        <label for="mobileMoney" style="display: inline; margin-bottom: 0;">Mobile Money</label>
+                                    </div>
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer" style="margin-right: 8px;">
+                                        <label for="bankTransfer" style="display: inline; margin-bottom: 0;">Bank Transfer</label>
+                                    </div>
+                                    <div class="radio-option" style="display: flex; align-items: center;">
+                                        <input type="radio" id="card" name="paymentMethod" value="card" style="margin-right: 8px;">
+                                        <label for="card" style="display: inline; margin-bottom: 0;">Credit/Debit Card</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="mobileMoneyDetails" style="display: none; margin-top: 20px;">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="mobileNetwork" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Mobile Network:</label>
+                                    <select id="mobileNetwork" name="mobileNetwork" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                        <option value="">Select Network</option>
+                                        <option value="mtn">MTN</option>
+                                        <option value="vodafone">Vodafone</option>
+                                        <option value="airteltigo">AirtelTigo</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="mobileNumber" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Mobile Number:</label>
+                                    <input type="tel" id="mobileNumber" name="mobileNumber" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                </div>
+                            </div>
+                            
+                            <div id="bankDetails" style="display: none; margin-top: 20px;">
+                                <div class="bank-info" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                                    <h4 style="color: #1c4d72; margin-bottom: 15px;">Bank Transfer Details</h4>
+                                    <p style="margin-bottom: 8px;"><strong>Bank:</strong> Ghana Commercial Bank</p>
+                                    <p style="margin-bottom: 8px;"><strong>Account Name:</strong> Christian Faith Centre A/G</p>
+                                    <p style="margin-bottom: 8px;"><strong>Account Number:</strong> 1234567890123</p>
+                                    <p style="margin-bottom: 8px;"><strong>Branch:</strong> Takoradi Main</p>
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="referenceNumber" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Transfer Reference Number:</label>
+                                    <input type="text" id="referenceNumber" name="referenceNumber" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                </div>
+                            </div>
+                            
+                            <div id="cardDetails" style="display: none; margin-top: 20px;">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="cardNumber" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Card Number:</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                </div>
+                                
+                                <div style="display: flex; gap: 20px;">
+                                    <div class="form-group" style="flex: 1; margin-bottom: 20px;">
+                                        <label for="expiryDate" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Expiry Date:</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                    </div>
+                                    
+                                    <div class="form-group" style="flex: 1; margin-bottom: 20px;">
+                                        <label for="cvv" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">CVV:</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="cardholderName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #444;">Cardholder Name:</label>
+                                    <input type="text" id="cardholderName" name="cardholderName" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border-color 0.3s;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions" style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="btn" style="background: linear-gradient(to right, #2c6b93, #1c4d72); color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">Complete Donation</button>
+                            <button type="reset" class="btn" style="background: #f0f8ff; color: #1c4d72; padding: 15px 40px; border: 2px solid #1c4d72; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; margin-left: 15px;">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Christian Faith Centre A/G</h3>
+                    <p>We are a community of believers committed to following Jesus and serving our community. Join us as we grow in faith, hope, and love together.</p>
+                    <div class="social-links">
+                        <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#about" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#ministries" class="nav-link" data-page="ministries">Ministries</a></li>
+                        <li><a href="#membership" class="nav-link" data-page="membership">Membership</a></li>
+                        <li><a href="#payment" class="nav-link" data-page="payment">Give</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Service Times</h3>
+                    <ul class="footer-links">
+                        <li>Sunday Worship: 9:30 AM & 11:30 AM</li>
+                        <li>Thursday Bible Study: 5:30 PM</li>
+                        <li>Annual Prayers: 6:30 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Poly Getfund, behind Rapid school</li>
+                        <li><i class="fas fa-phone"></i> (+233) 245 3484 21</li>
+                        <li><i class="fas fa-envelope"></i> christianfaithcenterat35@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Christian Faith Center A/G. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    showPage(targetPage);
+                });
+            });
+            
+            // Show the home page by default
+            showPage('home');
+            
+            // Payment method toggle
+            const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+            const mobileMoneyDetails = document.getElementById('mobileMoneyDetails');
+            const bankDetails = document.getElementById('bankDetails');
+            const cardDetails = document.getElementById('cardDetails');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    // Hide all payment details
+                    mobileMoneyDetails.style.display = 'none';
+                    bankDetails.style.display = 'none';
+                    cardDetails.style.display = 'none';
+                    
+                    // Show selected payment details
+                    if (this.value === 'mobileMoney') {
+                        mobileMoneyDetails.style.display = 'block';
+                    } else if (this.value === 'bankTransfer') {
+                        bankDetails.style.display = 'block';
+                    } else if (this.value === 'card') {
+                        cardDetails.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Form submissions
+            const membershipForm = document.getElementById('membershipForm');
+            const paymentForm = document.getElementById('paymentForm');
+            
+            if (membershipForm) {
+                membershipForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your membership application! We will contact you soon.');
+                    this.reset();
+                });
+            }
+            
+            if (paymentForm) {
+                paymentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your generous donation! Your support helps us fulfill our mission.');
+                    this.reset();
+                });
+            }
+        });
+        
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
